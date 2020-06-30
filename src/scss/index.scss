@@ -1,0 +1,52 @@
+@import "~bootstrap/scss/bootstrap";
+
+body {
+  background: #F0F0F5 url('../assets/github-background.svg') no-repeat 70% top;
+}
+
+#content {
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 40px 20px;
+}
+
+#repository-desc {
+  color: #A8A8B3;
+  font-size: 20px;
+}
+
+#repository-title {
+  font-weight: bold;
+}
+
+.body-title {
+  padding: 60px 0px;
+}
+
+.search-group {
+  padding-bottom: 60px;
+  max-width: 700px
+}
+
+.card {
+  transition: transform .3s;
+  cursor: pointer;
+
+  & + li {
+    margin-top: 15px;
+  }
+  &:hover {
+    transform: translateX(20px);
+  }
+}
+
+.spanError {
+  color: #C53030;
+  margin-top: 10px;
+  display: none;
+  font-weight: bold;
+}
+
+.error {
+  border: 2px solid #C53030;
+}
