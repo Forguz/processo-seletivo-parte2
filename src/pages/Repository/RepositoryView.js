@@ -23,7 +23,13 @@ export default /*html*/
     <h4>+500</h4>
     <div id="five_hundred_plus"></div>
   </div>
-  <h1>Issues</h1>
-  <div id="issues">
+  <div class="d-flex flex-row m-b-5 justify-content-between">
+    <h1>Issues</h1>
+    <div>
+      <button id="btn_filter_open" class="btn btn-success btn-lg">Hide open</button>
+      <button id="btn_filter_closed" class="btn btn-danger btn-lg">Hide closed</button>
+    </div>
+  </div>
+  <div id="issues" class="mt-5">
   </div>
 `;

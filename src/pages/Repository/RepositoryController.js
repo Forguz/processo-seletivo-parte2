@@ -7,8 +7,6 @@ export default async function RepositoryController(req) {
   const repoName = localStorage.getItem('@git_explorer/actual-repository');
   const response = await loadData(repoName);
 
-  console.log(response);
-
   document.querySelector('#image_container').innerHTML = /*html*/
   `
     <div class="d-flex p-2 flex-column justify-content-center">
@@ -19,14 +17,6 @@ export default async function RepositoryController(req) {
       <p class="card-text" id="repository-desc">${response.repository.description}</p>
     </div>
   `;
-
-  const issues = [...response.issues, ...response.closed_issues];
-
-  issues.forEach(issue => {
-    const { title, html_url, state } = issue;
-    const { login } = issue.user;
-    document.querySelector('#issues').appendChild(Issue({title, login, html_url, state}));
-  })
 
   const contributors = response.contributors.reduce((accumulator, contributor) => {
     if(contributor.contributions >= 500) {
@@ -83,9 +73,57 @@ export default async function RepositoryController(req) {
     }
 
     document.querySelector("#five_hundred_plus").querySelector(`#div${actualDiv500}`).appendChild(Contributors(contributor));
+  });
+
+  const issues = [...response.issues, ...response.closed_issues];
+
+  issues.forEach(issue => {
+    const { title, html_url, state } = issue;
+    const { login } = issue.user;
+    document.querySelector('#issues').appendChild(Issue({title, login, html_url, state}));
+  });
+
+  document.querySelector('#btn_filter_open').addEventListener('click', e => {
+    const issues = document.querySelector('#issues').getElementsByTagName('li');
+    const button = e.currentTarget;
+    for(let issue of issues) {
+      const state = issue.getElementsByTagName('span')[0].innerHTML;
+      if(button.innerHTML == 'Hide open') {
+        if(state === 'open') {
+          issue.style = 'display: none';
+        }
+      } else {
+        issue.style = 'display: flex';
+      }
+    }
+
+    if(button.innerHTML === 'Hide open') {
+      button.innerHTML = 'Show open';
+    } else {
+      button.innerHTML = 'Hide open';
+    }
   })
 
-  console.log(contributors);
+  document.querySelector('#btn_filter_closed').addEventListener('click', e => {
+    const issues = document.querySelector('#issues').getElementsByTagName('li');
+    const button = e.currentTarget;
+    for(let issue of issues) {
+      const state = issue.getElementsByTagName('span')[0].innerHTML;
+      if(button.innerHTML == 'Hide closed') {
+        if(state === 'closed') {
+          issue.style = 'display: none';
+        }
+      } else {
+        issue.style = 'display: flex';
+      }
+    }
+
+    if(button.innerHTML === 'Hide closed') {
+      button.innerHTML = 'Show closed';
+    } else {
+      button.innerHTML = 'Hide closed';
+    }
+  })
 };
 
 async function loadData(repoName) {

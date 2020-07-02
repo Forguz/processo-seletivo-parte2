@@ -34,7 +34,6 @@ async function submit(e) {
 
   const repositoryExists = repositories.find(repository => repository.title.toLowerCase() === repoName.toLowerCase());
 
-  console.log('Já existe', repositoryExists);
   if(repositoryExists) {
     Toastr.warning('Repositório já adicionado.');
   } else {
@@ -69,7 +68,6 @@ async function loadData(repoName) {
 function pushRepository(e) {
   const repositoryName = e.currentTarget.querySelector('h5').innerHTML;
   localStorage.setItem('@git_explorer/actual-repository', repositoryName);
-  console.log(repositoryName);
   pushRouter('/repository', router);
 }
 

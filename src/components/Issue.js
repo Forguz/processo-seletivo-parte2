@@ -10,7 +10,7 @@ export default function Issue({title, login, html_url, state}) {
   issue.innerHTML = /*html*/
   `
     <a href=${html_url} style="text-decoration: none; color: black;" target="blank" class="card-body">
-      <div class="lala" style="display: flex;">
+      <div style="display: flex;">
         <div class="d-flex p-2 flex-column justify-content-center" style="flex: 1">
           <h5 class="card-title">${title}</h5>
           <p class="card-text" id="repository_desc">${login}</p>
