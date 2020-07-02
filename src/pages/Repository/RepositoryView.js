@@ -1,19 +1,29 @@
-export default
+export default /*html*/
 `
-<div class="card-body">
-  <div class="lala" style="display: flex;">
-    <div class="d-flex p-2 flex-column justify-content-center">
-      <img src="" alt="" width="80px" height="80px" class="rounded-circle">
-    </div>
-    <div class="d-flex p-2 flex-column justify-content-center" style="flex: 1">
-      <h5 class="card-title">Rocketseat/unform</h5>
-      <p class="card-text">asdjoiasdkookdsa</p>
-    </div>
-    <div class="d-flex p-2 flex-column justify-content-center">
-      <svg width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-chevron-right" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
-        <path fill-rule="evenodd" d="M4.646 1.646a.5.5 0 0 1 .708 0l6 6a.5.5 0 0 1 0 .708l-6 6a.5.5 0 0 1-.708-.708L10.293 8 4.646 2.354a.5.5 0 0 1 0-.708z"/>
-      </svg>
+  <a class="btn btn-outline-primary btn-lg" href="/">
+    <svg width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-chevron-left" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+      <path fill-rule="evenodd" d="M11.354 1.646a.5.5 0 0 1 0 .708L5.707 8l5.647 5.646a.5.5 0 0 1-.708.708l-6-6a.5.5 0 0 1 0-.708l6-6a.5.5 0 0 1 .708 0z"/>
+    </svg>
+    voltar
+  </a>
+  <div id="image_container" class="d-flex mt-5">
+    <div class="text-center align-self-center">
+      <div class="spinner-border" style="width: 60px; height: 60px;" role="status">
+        <span class="sr-only">Loading...</span>
+      </div>
     </div>
   </div>
-</div>
+  <div class="mt-5">
+    <h1>Contribuidores</h1>
+    <h4>100 - 199</h4>
+    <div id="hundred_plus">
+    </div>
+    <h4>200 - 499</h4>
+    <div id="two_hundred_plus"></div>
+    <h4>+500</h4>
+    <div id="five_hundred_plus"></div>
+  </div>
+  <h1>Issues</h1>
+  <div id="issues">
+  </div>
 `;

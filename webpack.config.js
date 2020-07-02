@@ -57,7 +57,7 @@ module.exports = {
   },
   devServer: {
     contentBase: path.resolve(__dirname, 'dist'),
-    // historyApiFallback: true,
+    historyApiFallback: true,
     watchContentBase: true,
     open: true
   }

@@ -1,5 +1,6 @@
-import Home from './pages/Home/HomeController';
+import router from './router';
+import pushRouter from './router';
 
 export default function App() {
-  Home();
+  router.init();
 }

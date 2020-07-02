@@ -1,5 +1,9 @@
 @import "~bootstrap/scss/bootstrap";
 
+* {
+  -webkit-font-smoothing: antialiased;
+}
+
 body {
   background: #F0F0F5 url('../assets/github-background.svg') no-repeat 70% top;
 }
@@ -17,6 +21,28 @@ body {
 
 #repository-title {
   font-weight: bold;
+}
+
+#contributor_container {
+  text-decoration: none;
+  color: black;
+  height: 110px;
+  width: 90px;
+  img {
+    margin-bottom: 5px;
+    width: 50px;
+    height: 50px;
+  }
+  span {
+    color: black;
+    text-align: center;
+    font-weight: 500;
+    box-sizing: border-box;
+    border: 1px solid transparent;
+  }
+  &:hover span {
+    border-bottom: 1px solid blue;
+  }
 }
 
 .body-title {
