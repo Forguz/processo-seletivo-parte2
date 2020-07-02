@@ -93,7 +93,9 @@ export default async function RepositoryController(req) {
           issue.style = 'display: none';
         }
       } else {
-        issue.style = 'display: flex';
+        if(state === 'open') {
+          issue.style = 'display: flex';
+        }
       }
     }
 
@@ -114,7 +116,9 @@ export default async function RepositoryController(req) {
           issue.style = 'display: none';
         }
       } else {
-        issue.style = 'display: flex';
+        if(state === 'closed') {
+          issue.style = 'display: flex';
+        }
       }
     }
 
@@ -129,8 +133,8 @@ export default async function RepositoryController(req) {
 async function loadData(repoName) {
   const [repository, issues, closed_issues, contributors] = await Promise.all([
     api.get(`/repos/${repoName}`),
-    api.get(`/repos/${repoName}/issues`),
-    api.get(`/repos/${repoName}/issues?state=closed`),
+    api.get(`/repos/${repoName}/issues?per_page=100`),
+    api.get(`/repos/${repoName}/issues?per_page=300&state=closed`),
     api.get(`/repos/${repoName}/contributors?per_page=300`)
   ]);
 
